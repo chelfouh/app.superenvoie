@@ -38,5 +38,10 @@
 
   status = 302
 
-
-  force = true
+force = true
+# Rediriger la racine vers /open automatiquement
+[[redirects]]
+  from = "/"
+  to = "/open"
+  status = 302
+  force = true 
