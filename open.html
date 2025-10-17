@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <title>Ouverture de Super Envoie…</title>
+
+  <meta name="robots" content="noindex,nofollow" />
+
+  <script>
+
+    (function () {
+
+      // Conserve le chemin et les paramètres /open?... pour l'app et la PWA
+
+      var pathAndQuery = window.location.pathname + window.location.search; 
+
+      // 1) Tentative d'ouverture de l'app native
+
+      var schemeUrl = "superenvoie://" + pathAndQuery.substring(1);
+
+      // 2) Fallback vers la PWA Adalo (ton sous-domaine actuel)
+
+      var webFallback = "https://superenvoie.adalo.com" + pathAndQuery;
+
+
+
+      // Lance l’app
+
+      window.location.href = schemeUrl;
+
+
+
+      // Si rien ne s’est ouvert, passe en web après ~1.2s
+
+      setTimeout(function () {
+
+        window.location.replace(webFallback);
+
+      }, 1200);
+
+
+
+      // Sécurité : force le fallback après 3s quoi qu’il arrive
+
+      setTimeout(function () {
+
+        window.location.replace(webFallback);
+
+      }, 3000);
+
+    })();
+
+  </script>
+
+  <style>
+
+    body {
+
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+
+      margin: 40px;
+
+      line-height: 1.5;
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <p>Ouverture de l’application <strong>Super Envoie</strong>…</p>
+
+  <p>Si rien ne se passe, <a href="https://superenvoie.adalo.com">continuer sur la version web</a>.</p>
+
+</body>
+
+
+</html>
