@@ -1,0 +1,42 @@
+# Netlify config pour app.superenvoie.fr (deep links)
+
+
+
+# ---------- HEADERS pour les fichiers iOS / Android ----------
+
+[[headers]]
+
+  for = "/.well-known/apple-app-site-association"
+
+  [headers.values]
+
+  Content-Type = "application/json; charset=utf-8"
+
+  Cache-Control = "public, max-age=3600"
+
+
+
+[[headers]]
+
+  for = "/.well-known/assetlinks.json"
+
+  [headers.values]
+
+  Content-Type = "application/json; charset=utf-8"
+
+  Cache-Control = "public, max-age=3600"
+
+
+
+# ---------- Redirection /open (sans fichier) vers open.html ----------
+
+[[redirects]]
+
+  from = "/open"
+
+  to = "/open.html"
+
+  status = 302
+
+
+  force = true
